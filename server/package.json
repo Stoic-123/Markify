@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "module": "app.js",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.2",
+    "fs": "^0.0.1-security",
+    "nodemon": "^3.1.10",
+    "path": "^0.12.7",
+    "sharp": "^0.34.3"
+  }
+}

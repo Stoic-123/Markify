@@ -1,0 +1,43 @@
+{
+  "name": "generate-watermark-app",
+  "main": "main.js",
+  "productName": "Markify",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "electron .",
+    "server": "cd server && nodemon app",
+    "client": "cd client && bun run dev",
+    "dev": "concurrently \"bun run server\" \"bun run client\" \"bun run start\"",
+    "build-react": "cd client && bun run build",
+    "pack": "bun run build-react && electron-builder"
+  },
+ "dependencies": {
+  "concurrently": "^9.2.0"
+},
+"devDependencies": {
+  "electron": "^37.2.6",
+  "electron-builder": "^26.0.12"
+},
+  "build": {
+    "appId": "com.markify.app",
+    "productName": "Markify",
+    "files": [
+      "client/dist/**/*",
+      "server/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "mac": {
+      "icon": "assets/logo.icns"
+    },
+    "win": {
+      "icon": "assets/logo.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "directories": {
+      "output": "release"
+    }
+  }
+}
