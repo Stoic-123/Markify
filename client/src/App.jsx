@@ -6,6 +6,7 @@ import { message, Upload } from "antd";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
+import DownloadIcon from "@mui/icons-material/Download";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Input } from "antd";
@@ -30,7 +31,16 @@ const App = () => {
   const [logoFileList, setLogoFileList] = React.useState([]);
   const [inputImageFileList, setInputImageFileList] = React.useState([]);
   const [value, setValue] = React.useState("1");
+  const [isElectron, setIsElectron] = React.useState(false);
 
+  useEffect(() => {
+    // Detect if running inside Electron
+    const userAgent = navigator.userAgent.toLowerCase();
+    const electronEnv = window && window.process && window.process.type;
+    const runningInElectron =
+      electronEnv || userAgent.indexOf("electron") !== -1;
+    setIsElectron(runningInElectron);
+  }, []);
   const handleSelectFile = ({ fileList }) => {
     setLogoFileList(fileList);
     setSelectedLogoFile(fileList.length > 0);
@@ -187,6 +197,32 @@ const App = () => {
           ដាក់ watermark លើរូបភាព
         </p>
       </div>
+      {!isElectron && (
+        <div className="d-flex justify-content-center align-items-center mt-3">
+          <Button
+            href="https://github.com/Stoic-123/Markify/releases/download/v1.0.0/Markify.Setup.1.0.0.exe"
+            startIcon={<DownloadIcon />}
+            className="py-2 px-4 "
+            variant="filled"
+            sx={{
+              backgroundColor: "dodgerblue",
+              color: "white",
+            }}
+          >
+            Download Desktop App
+          </Button>
+          <Button
+            className="py-2 px-4 ms-4 border"
+            variant="filled"
+            sx={{
+              backgroundColor: "white",
+              color: "black",
+            }}
+          >
+            Try Web Version
+          </Button>
+        </div>
+      )}
       <div className="row gy-4 mt-5">
         <div className="col-12 col-md-6">
           <div className="col-12">
