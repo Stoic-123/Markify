@@ -212,7 +212,7 @@ const App = () => {
             Download Desktop App
           </Button>
           <Button
-            className="py-2 px-4 ms-4 border"
+            className="py-2 px-4 ms-0 ms-md-4 border"
             variant="filled"
             sx={{
               backgroundColor: "white",
