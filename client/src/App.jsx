@@ -198,11 +198,11 @@ const App = () => {
         </p>
       </div>
       {!isElectron && (
-        <div className="d-flex justify-content-center align-items-center mt-3">
+        <div className="d-flex justify-content-center align-items-center flex-column flex-md-row mt-3">
           <Button
             href="https://github.com/Stoic-123/Markify/releases/download/v1.0.0/Markify.Setup.1.0.0.exe"
             startIcon={<DownloadIcon />}
-            className="py-2 px-4 "
+            className="py-2 px-4 mb-3 mb-md-0"
             variant="filled"
             sx={{
               backgroundColor: "dodgerblue",
