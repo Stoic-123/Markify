@@ -1,8 +1,16 @@
 import express from "express";
+import { rateLimit } from "express-rate-limit";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 import waterMarkRoute from "./routes/waterMark.js";
 const app = express();
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 100,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+});
+app.use(limiter);
 app.use(express.json());
 app.use(fileUpload());
 app.use((req, res, next) => {
