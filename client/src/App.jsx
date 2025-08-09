@@ -87,8 +87,8 @@ const App = () => {
       );
       if (res.status === 200) {
         Swal.fire({
-          title: "Good job!",
-          text: "You clicked the button!",
+          title: "ជោគជ័យ",
+          text: "អ្នកបានដាក់ Watermark បានជោគជ័យ",
           icon: "success",
         });
         setIsDownloadBtn(false);
@@ -96,7 +96,9 @@ const App = () => {
         setTextValue("");
         setLogoFileList([]);
         setInputImageFileList([]);
-        setPreview(`https://markify-p985.onrender.com${res.data.outputImageUrl}`);
+        setPreview(
+          `https://markify-p985.onrender.com${res.data.outputImageUrl}`
+        );
       }
     } catch (error) {
       console.log(error);
@@ -471,6 +473,21 @@ const App = () => {
             </Button>
           </div>
         </div>
+      </div>
+      <div className="footer d-flex flex-column align-items-center mt-5">
+        <h5 className="mb-0">
+          បង្កើតឡើងដោយ{" "}
+          <a
+            href="https://t.me/Lo_ng999"
+            className="text-primary text-decoration-none"
+          >
+            @Ieng kimlong
+          </a>
+        </h5>
+        <p className="text-secondary fw-medium mb-0 my-2">
+          Junior Web developer
+        </p>
+        <p className="mb-0">©២០២៥​ Markify. រក្សាទុកគ្រប់យ៉ាង.</p>
       </div>
     </div>
   );

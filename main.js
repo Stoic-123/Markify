@@ -9,7 +9,7 @@ function createWindow() {
     height: 800,
     icon: path.join(__dirname, "assets", "logo.ico"),
     webPreferences: {
-      nodeIntegration: true, // true security risk a bit but false we need a file preload.js
+      nodeIntegration: true, 
       contextIsolation: true,
     },
   });
