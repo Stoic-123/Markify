@@ -82,7 +82,7 @@ const App = () => {
         formData.append("logoImage", logoFile);
       }
       const res = await axios.post(
-        "http://localhost:8080/generateWaterMark",
+        "https://markify-p985.onrender.com//generateWaterMark",
         formData
       );
       if (res.status === 200) {
