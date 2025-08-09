@@ -13,14 +13,14 @@ const limiter = rateLimit({
 app.use(limiter);
 app.use(express.json());
 app.use(fileUpload());
-// app.use((req, res, next) => {
-//   const allowed = ["http://localhost:5173", "https://markify-wheat.vercel.app"];
-//   const origin = req.headers.origin;
-//   if (allowed.includes(origin)) {
-//     res.header("Access-Control-Allow-Origin", origin);
-//   }
-//   next();
-// });
+app.use((req, res, next) => {
+  const allowed = ["http://localhost:5173", "https://markify-wheat.vercel.app"];
+  const origin = req.headers.origin;
+  if (allowed.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+  next();
+});
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(
