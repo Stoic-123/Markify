@@ -82,7 +82,7 @@ const App = () => {
         formData.append("logoImage", logoFile);
       }
       const res = await axios.post(
-        "https://markify-p985.onrender.com//generateWaterMark",
+        "https://markify-p985.onrender.com/generateWaterMark",
         formData
       );
       if (res.status === 200) {
@@ -96,7 +96,7 @@ const App = () => {
         setTextValue("");
         setLogoFileList([]);
         setInputImageFileList([]);
-        setPreview(`http://localhost:8080${res.data.outputImageUrl}`);
+        setPreview(`https://markify-p985.onrender.com${res.data.outputImageUrl}`);
       }
     } catch (error) {
       console.log(error);
